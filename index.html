@@ -35,6 +35,7 @@
           <a href="#" id="search" onclick="createIssue()">Create Issue</a>
         </div>
         <div id="issues"></div>
+
       </div>
     </div>
     <script src="handlebars.js"></script>
@@ -42,9 +43,24 @@
     <script id="repo-template" type="text/x-handlebars-template">
       <h3>Forked Successfully!</h3>
       <!--fill me in with templatey goodness-->
+      <ul>
+      {{#each this}}
+        <li>
+          <a href="{{ html_url }}">{{ full_name }}</a><br>
+        </li>
+      {{/each}}
+      </ul>
     </script>
     <script id="issues-template" type="text/x-handlebars-template">
       <!--fill me in with templatey goodness-->
+      <ul>
+      {{#each this}}
+        <li>
+          <a href="{{ url }}">{{ title }}</a><br>
+          <p>{{ body }}</p>
+        </li>
+      {{/each}}
+      </ul>
     </script>
   </body>
 </html>
