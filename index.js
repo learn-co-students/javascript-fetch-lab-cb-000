@@ -4,7 +4,7 @@ function getIssues() {
     headers: {
       Authorization: `token ${getToken()}`
     }
-  })
+  }).then(res => res.json()).then(json => showIssues(json));
 }
 
 function showIssues(json) {
@@ -13,13 +13,17 @@ function showIssues(json) {
 }
 
 function createIssue() {
+  const issueTitle = document.getElementById('title').value
+  const issueBody = document.getElementById('body').value
+  const postData = { title: issueTitle, body: issueBody }
+
   return fetch(`api.github.com/javascript-fetch-lab/issues`, {
     method: 'post',
-    body: 'test body',
+    body: JSON.stringify(postData),
     headers: {
       Authorization: `token ${getToken()}`
     }
-  })
+  }).then(res => getIssues());
 }
 
 function showResults(json) {
