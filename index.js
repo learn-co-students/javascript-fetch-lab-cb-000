@@ -7,6 +7,8 @@ function getIssues() {
   }).then(res => res.json()).then(json => showIssues(json));
 }
 
+//standard handlebars templates
+
 function showIssues(json) {
   const template = Handlebars.compile(document.getElementById('issues-template').innerHTML)
   document.getElementById('issues').innerHTML = template(json);
