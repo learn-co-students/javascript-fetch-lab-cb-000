@@ -13,7 +13,6 @@ function getIssues() {
 
 function showIssues(json) {
   var issueList = `<ul>${json.map(item => '<li>' + item.title + '</li>').join('')}</ul>`
-    console.log(issueList)
   var issues = document.getElementById("issues")
   issues.innerHTML = issueList
 }
@@ -23,7 +22,6 @@ function createIssue() {
     title: document.getElementById("title").value,
     body: document.getElementById("body").value
   }
-  console.log(postData)
 
   fetch(`${githubUrl}efl7a/javascript-fetch-lab/issues`, {
     method: 'post',
