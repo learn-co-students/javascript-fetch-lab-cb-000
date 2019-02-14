@@ -61,6 +61,7 @@ function createIssue() {
     */
    
   fetch(url, {
+    
     method: "post",
     body: JSON.stringify({
       "title": `${issueTitle}`, 

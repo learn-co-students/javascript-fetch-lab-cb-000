@@ -20,6 +20,7 @@ describe('index', () => {
       done()
     })
   })
+  
 
   it('does not commit token', () => {
     expect(getToken()).toEqual('')
